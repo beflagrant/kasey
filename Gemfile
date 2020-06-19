@@ -13,3 +13,5 @@ gemspec
 
 # To use a debugger
 # gem 'byebug', group: [:development, :test]
+gem 'rspec'
+gem 'rspec_junit_formatter' # Desired by CircleCI
