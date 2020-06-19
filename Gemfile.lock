@@ -156,8 +156,8 @@ PLATFORMS
 
 DEPENDENCIES
   casey!
-  rspec (~> 3.9.0)
-  rspec_junit_formatter (~> 0.4.1)
+  rspec
+  rspec_junit_formatter
   sqlite3 (~> 1.4.2)
 
 BUNDLED WITH
