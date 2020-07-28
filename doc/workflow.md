@@ -1,10 +1,10 @@
-# `casey` workflow
+ `kasey` workflow
 
-1. `bundle install casey`
-2. `rails g casey:init` - this will create the casey.yml file in config/, and
+1. `bundle install kasey`
+2. `rails g kasey:init` - this will create the kasey.yml file in config/, and
    add other necessary parts
-3. edit the config/casey.yml file
-4. `rails casey:build` generates the `app/controllers/step_controller` and all
+3. edit the config/kasey.yml file
+4. `rails kasey:build` generates the `app/controllers/step_controller` and all
    steps at `app/controllers/steps/step_name`, along with updates to the model
 
 ```yml

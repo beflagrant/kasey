@@ -1,5 +1,5 @@
-module Casey
+module Kasey
   class Engine < ::Rails::Engine
-    isolate_namespace Casey
+    isolate_namespace Kasey
   end
 end

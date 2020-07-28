@@ -1,12 +1,12 @@
 $:.push File.expand_path('lib', __dir__)
 
 # Maintain your gem's version:
-require 'casey/version'
+require 'kasey/version'
 
 # Describe your gem and declare its dependencies:
 Gem::Specification.new do |spec|
-  spec.name        = 'casey'
-  spec.version     = Casey::VERSION
+  spec.name        = 'kasey'
+  spec.version     = Kasey::VERSION
   spec.authors     = ['Ben Vandgrift']
   spec.email       = ['ben@vandgrift.com']
   spec.summary     = 'a case management engine and workflow generator'
@@ -24,7 +24,7 @@ Gem::Specification.new do |spec|
   ]
 
   spec.add_dependency 'rails', '~> 6.0.3', '>= 6.0.3.1'
-  spec.add_dependency 'wicked', '~> 1.3.4'
+  # spec.add_dependency 'wicked', '~> 1.3.4'
 
   spec.add_development_dependency 'sqlite3', '~> 1.4.2'
   spec.add_development_dependency 'rspec', '~> 3.9.0'

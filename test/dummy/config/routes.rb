@@ -1,3 +1,3 @@
 Rails.application.routes.draw do
-  mount Casey::Engine => "/casey"
+  mount Kasey::Engine => "/kasey"
 end

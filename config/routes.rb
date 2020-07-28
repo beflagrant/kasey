@@ -1,2 +1,2 @@
-Casey::Engine.routes.draw do
+Kasey::Engine.routes.draw do
 end

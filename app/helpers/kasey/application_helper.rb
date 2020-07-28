@@ -1,4 +1,4 @@
-module Casey
+module Kasey
   module ApplicationHelper
   end
 end
