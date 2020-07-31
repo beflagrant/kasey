@@ -9,3 +9,5 @@ test/dummy/storage/
 test/dummy/tmp/
 *.sqlite3
 spec/dummy/log
+kasey-*.gem
+node_modules

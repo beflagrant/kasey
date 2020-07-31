@@ -1,0 +1,38 @@
+<div class="card mb-3">
+  <div class="card-header">
+      from: <%= @admin_case.intake.sender %> on: <%= @admin_case.intake.created_at %>
+  </div>
+  <div class="card-body">
+    <p>original message:</p>
+
+    <%= @admin_case.intake.message %>
+
+    <hr/>
+
+    <%= button_to 'close', admin_case_path(@admin_case), method: :delete, class: 'btn btn-primary card-link' %>
+  </div>
+</div>
+
+
+<div class="card mb-3">
+  <div class="card-header">
+    Add a Message
+  </div>
+  <div class="card-body">
+    <%= form_with(model: Admin::Message.new, url: admin_case_messages_path(@admin_case)) do |form| %>
+      <div class="field">
+        <%= form.rich_text_area :body %>
+      </div>
+      <div class="field">
+        <button type="submit" class="btn btn-success" name="admin_message[direction]", value="out">
+          Send To Client
+        </button>
+        <button type="submit" class="btn btn-success" name="admin_message[direction]", value="internal">
+          Save Internal Note
+        </button>
+      </div>
+    <% end %>
+  </div>
+</div>
+
+<%= render @admin_case.messages %>

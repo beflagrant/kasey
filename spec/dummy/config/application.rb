@@ -1,6 +1,8 @@
 require_relative 'boot'
 
 require 'rails/all'
+require 'active_storage/engine'
+require 'action_mailbox/engine'
 
 Bundler.require(*Rails.groups)
 require "kasey"

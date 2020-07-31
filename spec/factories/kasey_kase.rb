@@ -1,0 +1,1 @@
+spec/factories/kasey_kase.rb

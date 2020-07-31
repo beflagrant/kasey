@@ -1,0 +1,29 @@
+
+<h1>Cases</h1>
+
+<table class="table">
+  <thead>
+    <tr>
+      <th scope="col">#</th>
+      <th scope="col">Case</th>
+      <th scope="col">Date</th>
+      <th scope="col">Messages</th>
+      <th scope="col">Status</th>
+      <th colspan="2" scope="col">Actions</th>
+    </tr>
+  </thead>
+
+  <tbody>
+    <% @admin_cases.each_with_index do |admin_case, idx| %>
+      <tr class="status__<%= admin_case.aasm.current_state %>">
+        <th scope="row"><%= idx %></th>
+        <td><%= admin_case.intake.name %> (<%= admin_case.intake.email %>)</td>
+        <td><%= admin_case.created_at %></td>
+        <td><%= admin_case.messages.count %></td>
+        <td><%= admin_case.aasm.current_state %></td>
+        <td><%= link_to 'Show', admin_case %></td>
+        <td><%= link_to 'Destroy', admin_case, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>

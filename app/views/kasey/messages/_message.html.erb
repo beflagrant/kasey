@@ -1,0 +1,10 @@
+<div class="card message__<%= message.direction %> mb-3">
+  <div class="card-header">
+      from: <%= message.sender %> on: <%= message.created_at %>
+  </div>
+  <div class="card-body">
+    <div class="content">
+      <p><%= message.body %></p>
+    </div>
+  </div>
+</div>
