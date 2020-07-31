@@ -22,11 +22,12 @@ Gem::Specification.new do |spec|
     'Rakefile',
     'README.md'
   ]
+  spec.test_files = Dir["spec/**/*"]
 
   spec.add_dependency 'rails', '~> 6.0.3', '>= 6.0.3.1'
   # spec.add_dependency 'wicked', '~> 1.3.4'
 
   spec.add_development_dependency 'sqlite3', '~> 1.4.2'
-  spec.add_development_dependency 'rspec', '~> 3.9.0'
+  spec.add_development_dependency 'rspec-rails', '~> 4.0.1'
   spec.add_development_dependency 'rspec_junit_formatter', '~> 0.4.1'
 end
