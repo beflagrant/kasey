@@ -1,3 +1,12 @@
+# QUICK START and QUICK DEV NOTES
+
+(please remove all this prior to any visibility)
+
+1. check out the code
+2. all the 'action' happens in `test/dummy`
+3. `pushd test/dummy && bundle exec rails db:create db:migrate && popd`
+4. `pushd test/dummy && bundle exec rspec && popd`
+
 # Kasey
 
 Many apps are case management apps. Often, the choice is 'build a simple case
@@ -11,8 +20,9 @@ building. In the second case, money money money.
 Kasey (a kase management plugin for Rails) provides a simple case management
 workflow engine for inclusion in your new or existing Rails application.
 
-
 ## Installation
+
+(this is all TBD)
 
 ### Add the Gem
 
@@ -23,6 +33,7 @@ gem 'kasey'
 ```
 
 And then execute:
+
 ```bash
 $ bundle
 $ rails kasey:install
@@ -38,10 +49,17 @@ After running `rails kasey:install`, you will have an initializer in
 TBD!
 
 ## Usage
+
 How to use my plugin. On
 
+## Development
+
+## Testing
+
 ## Contributing
+
 Contribution directions go here.
 
 ## License
+
 The gem is available as open source under the terms of the [MIT License](https://opensource.org/licenses/MIT).
