@@ -5,7 +5,7 @@ orbs:
 jobs:
   build26:
     docker:
-      - image: circleci/ruby:2.6.3-stretch-node
+      - image: circleci/ruby:2.6.3-buster-node
     executor: ruby/default
     steps:
       - checkout
@@ -31,7 +31,7 @@ jobs:
           command: bundle exec rspec
   build25:
     docker:
-      - image: circleci/ruby:2.5-stretch-node
+      - image: circleci/ruby:2.5-buster-node
     executor: ruby/default
     steps:
       - checkout
@@ -51,18 +51,18 @@ jobs:
           name: test the thing
           working_directory: ~/project/test/dummy
           command: bundle exec rspec
-  build24:
+  build27:
     docker:
-      - image: circleci/ruby:2.4-stretch-node
+      - image: circleci/ruby:2.7-buster-node
     executor: ruby/default
     steps:
       - checkout
       - restore_cache:
-          key: kasey-24-{{ checksum "Gemfile.lock" }}
+          key: kasey-27-{{ checksum "Gemfile.lock" }}
       - ruby/install-deps:
           with-cache: false
       - save_cache:
-          key: kasey-24-{{ checksum "Gemfile.lock" }}
+          key: kasey-27-{{ checksum "Gemfile.lock" }}
           paths:
             - vendor/bundle
       - run:
@@ -81,6 +81,6 @@ workflows:
   build_ruby_25:
     jobs:
       - build25
-  build_ruby_24:
+  build_ruby_27:
     jobs:
-      - build24
+      - build27
