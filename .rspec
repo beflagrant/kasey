@@ -1,4 +1,4 @@
---require test/dummy/spec/spec_helper
+--require ./test/dummy/spec/spec_helper
 --color
 --format documentation
 --default-path test/dummy/spec

@@ -12,10 +12,8 @@ jobs:
       - ruby/install-deps:
           with-cache: true
       - run:
-          name: use the dummy
-          command: cd test/dummy
-      - run:
           name: load the schema
+          working_directory: ~/project/test/dummy
           command: bundle exec rails db:schema:load --trace
       - run:
           name: test the thing
