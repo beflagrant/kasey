@@ -3,9 +3,6 @@ require 'spec_helper'
 ENV['RAILS_ENV'] ||= 'test'
 require File.expand_path('../config/environment', __dir__)
 
-puts "MIGRATION_PATHS: #{ActiveRecord::Migrator.migrations_paths}"
-puts "MIGRATION_STATUS: #{ActiveRecord::Base.connection.migration_context.migrations_status}"
-
 # ActiveRecord::Migrator.migrations_paths = 'spec/dummy/db/migrate'
 # Prevent database truncation if the environment is production
 abort("The Rails environment is running in production mode!") if Rails.env.production?
