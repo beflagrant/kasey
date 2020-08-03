@@ -1,3 +1,3 @@
 class Kasey::ApplicationMailbox < ActionMailbox::Base
-  routing (/kasey/i) => :kase_inbox
+  routing (/kasey/i) => "Kasey::KaseInbox" #JAAAANKY
 end

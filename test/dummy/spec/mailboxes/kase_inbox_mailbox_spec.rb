@@ -1,7 +1,7 @@
 require 'rails_helper'
 
 RSpec.describe Kasey::KaseInboxMailbox, type: :mailbox do
-  let(:email) { 'from-address@example.com' }
+  let(:email) { 'from-address@kasey.example.com' }
   let(:intake) { create :intake, email: email }
   let(:kase) { create :kase, intake: intake }
   let(:other_case) { create :kase }
@@ -11,7 +11,7 @@ RSpec.describe Kasey::KaseInboxMailbox, type: :mailbox do
       subject do
         receive_inbound_email_from_mail(
           from: email,
-          to: "#{kase.token}@example.com",
+          to: "#{kase.token}@kasey.example.com",
           subject: 'test case',
           body: 'this is a message from the client'
         )
@@ -25,8 +25,8 @@ RSpec.describe Kasey::KaseInboxMailbox, type: :mailbox do
     context 'to a case address not matching their case' do
       subject do
         receive_inbound_email_from_mail(
-          from: 'from-address@example.com',
-          to: "#{other_case.token}@example.com",
+          from: 'from-address@kasey.example.com',
+          to: "#{other_case.token}@kasey.example.com",
           subject: 'test case',
           body: "this is a message from a scammer"
         )

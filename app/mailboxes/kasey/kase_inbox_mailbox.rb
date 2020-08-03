@@ -11,7 +11,7 @@ class Kasey::KaseInboxMailbox < Kasey::ApplicationMailbox
   def find_case
     logger.error("CASE_INBOX: received mail! #{mail.inspect}")
     intake_ids = Intake.where(email: mail.from.first).map(&:id)
-    @kase = Admin::Case.find_by(token: extract_token(mail), intake_id: intake_ids)
+    @kase = Kasey::Kase.find_by(token: extract_token(mail), intake_id: intake_ids)
   end
 
   def extract_token(msg)
