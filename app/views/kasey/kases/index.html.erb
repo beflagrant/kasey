@@ -1,0 +1,29 @@
+
+<h1>Cases</h1>
+
+<table class="table">
+  <thead>
+    <tr>
+      <th scope="col">#</th>
+      <th scope="col">Case</th>
+      <th scope="col">Date</th>
+      <th scope="col">Messages</th>
+      <th scope="col">Status</th>
+      <th colspan="2" scope="col">Actions</th>
+    </tr>
+  </thead>
+
+  <tbody>
+    <% @kases.each_with_index do |kase, idx| %>
+      <tr class="status__<%= kase.aasm.current_state %>">
+        <th scope="row"><%= idx %></th>
+        <td><%= kase.intake.email %> (<%= kase.intake.email %>)</td>
+        <td><%= kase.created_at %></td>
+        <td><%= kase.messages.count %></td>
+        <td><%= kase.aasm.current_state %></td>
+        <td><%= link_to 'Show', kase %></td>
+        <td><%= link_to 'Destroy', kase, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>

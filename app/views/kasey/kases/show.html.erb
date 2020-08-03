@@ -1,15 +1,15 @@
 <div class="card mb-3">
   <div class="card-header">
-      from: <%= @admin_case.intake.sender %> on: <%= @admin_case.intake.created_at %>
+      from: <%= @kase.intake.email %> on: <%= @kase.intake.created_at %>
   </div>
   <div class="card-body">
     <p>original message:</p>
 
-    <%= @admin_case.intake.message %>
+    <%= @kase.intake.email %>
 
     <hr/>
 
-    <%= button_to 'close', admin_case_path(@admin_case), method: :delete, class: 'btn btn-primary card-link' %>
+    <%= button_to 'close', kase_path(@kase), method: :delete, class: 'btn btn-primary card-link' %>
   </div>
 </div>
 
@@ -19,7 +19,7 @@
     Add a Message
   </div>
   <div class="card-body">
-    <%= form_with(model: Admin::Message.new, url: admin_case_messages_path(@admin_case)) do |form| %>
+    <%= form_with(model: @kase.messages.new, url: kase_messages_path(@kase)) do |form| %>
       <div class="field">
         <%= form.rich_text_area :body %>
       </div>
@@ -35,4 +35,4 @@
   </div>
 </div>
 
-<%= render @admin_case.messages %>
+<%= render @kase.messages %>
