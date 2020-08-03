@@ -10,7 +10,6 @@ jobs:
     steps:
       - checkout
       - restore-cache
-          name: Restore bundle cache
           key: kasey-26-{{ checksum "Gemfile.lock" }}
       - ruby/install-deps:
           with-cache: false
