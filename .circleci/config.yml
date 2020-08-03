@@ -12,14 +12,14 @@ jobs:
       - ruby/install-deps:
           with-cache: true
       - run:
-        name: use the dummy
-        command: cd test/dummy
+          name: use the dummy
+          command: cd test/dummy
       - run:
-        name: load the schema
-        command: bundle exec rails db:schema:load --trace
+          name: load the schema
+          command: bundle exec rails db:schema:load --trace
       - run:
-        name: test the thing
-        command: bundle exec rspec
+          name: test the thing
+          command: bundle exec rspec
 
 workflows:
   build_test:
