@@ -22,6 +22,7 @@ require 'rspec/rails'
 # require only the support files necessary.
 #
 Dir['../spec/support/**/*.rb'].sort.each do |f|
+  puts "FOUND #{f}"
   require f
 end
 
