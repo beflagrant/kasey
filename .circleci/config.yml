@@ -10,8 +10,8 @@ jobs:
     steps:
       - checkout
       - type: cache-restore
-          name: Restore bundle cache
-          key: kasey-26-{{ checksum "Gemfile.lock" }}
+        name: Restore bundle cache
+        key: kasey-26-{{ checksum "Gemfile.lock" }}
       - ruby/install-deps:
           with-cache: false
 
@@ -19,10 +19,10 @@ jobs:
       #- run: bundle install --path vendor/bundle
 
       - type: cache-save
-          name: Store bundle cache
-          key: kasey-26-{{ checksum "Gemfile.lock" }}
-          paths:
-            - vendor/bundle
+        name: Store bundle cache
+        key: kasey-26-{{ checksum "Gemfile.lock" }}
+        paths:
+          - vendor/bundle
       - run:
           name: load the schema
           working_directory: ~/project/test/dummy
