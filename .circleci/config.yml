@@ -10,7 +10,7 @@ jobs:
     steps:
       - checkout
       - ruby/install-deps:
-          with-cache: true
+          with-cache: false
       - run:
           name: load the schema
           working_directory: ~/project/test/dummy
