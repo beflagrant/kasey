@@ -1,5 +1,11 @@
 FactoryBot.define do
+  sequence :email do |n|
+    "person#{n}@example.com"
+  end
+end
+
+FactoryBot.define do
   factory :intake do
-    email { 'email@test-host.com' }
+    email { generate :email }
   end
 end

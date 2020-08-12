@@ -13,10 +13,9 @@
 # sticking to rails and rspec-rails APIs to keep things simple and stable.
 
 RSpec.describe "/kasey/kases", type: :request do
-  # Admin::Case. As you add validations to Admin::Case, be sure to
-  # adjust the attributes here as well.
   let(:kase) { create :kase }
-  # before { sign_in FactoryBot.create(:admin_user) }
+
+  before { sign_in FactoryBot.create(:admin) }
 
   describe "GET /index" do
     it "renders a successful response" do
