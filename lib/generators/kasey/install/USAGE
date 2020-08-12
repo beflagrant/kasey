@@ -1,0 +1,8 @@
+Description:
+    installs the Kasey initializer
+
+Example:
+    rails generate kasey:install
+
+    This will create:
+        config/initializers/kasey.rb
