@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2020_08_13_205816) do
+ActiveRecord::Schema.define(version: 2020_08_13_212147) do
 
   create_table "action_mailbox_inbound_emails", force: :cascade do |t|
     t.integer "status", default: 0, null: false
@@ -68,12 +68,13 @@ ActiveRecord::Schema.define(version: 2020_08_13_205816) do
   end
 
   create_table "kasey_kases", force: :cascade do |t|
+    t.string "intake_type"
     t.integer "intake_id"
     t.string "aasm_state"
     t.string "token", null: false
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
-    t.index ["intake_id"], name: "index_kasey_kases_on_intake_id"
+    t.index ["intake_type", "intake_id"], name: "index_kasey_kases_on_intake_type_and_intake_id"
   end
 
   create_table "kasey_messages", force: :cascade do |t|

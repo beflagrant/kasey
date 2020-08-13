@@ -12,3 +12,4 @@ spec/dummy/log
 kasey-*.gem
 node_modules
 test/dummy/config/initializers/kasey.rb
+test/dummy/db/migrate/*kasey.rb

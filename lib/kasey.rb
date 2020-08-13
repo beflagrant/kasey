@@ -1,5 +1,4 @@
 require 'kasey/engine'
-require 'kasey/helpers'
 
 ## Kasey module
 module Kasey

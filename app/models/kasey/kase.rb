@@ -23,7 +23,7 @@ class Kasey::Kase < ApplicationRecord
     end
   end
 
-  belongs_to :intake
+  belongs_to :intake, polymorphic: true
   has_many :messages, -> { order  'created_at desc' }
 
   before_create :generate_token

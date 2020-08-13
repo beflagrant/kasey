@@ -13,7 +13,7 @@
 # sticking to rails and rspec-rails APIs to keep things simple and stable.
 
 RSpec.describe "/kasey/kases", type: :request do
-  let(:kase) { create :kase }
+  let(:kase) { create(:intake).kase }
 
   before { sign_in FactoryBot.create(:admin) }
 

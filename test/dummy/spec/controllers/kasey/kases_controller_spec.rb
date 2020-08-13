@@ -10,19 +10,19 @@ RSpec.describe Kasey::KasesController, type: :controller do
 
     login_admin
 
-    before do
-    end
-
     context '#index' do
-      let!(:kases) do
-        (1..4).map { create(:kase) }
-      end
-
       before do
-        allow(controller).to receive(:has_access?).and_return(true)
+        allow(controller).to receive(:has_access?).and_return(false)
       end
 
-      it 'displays a list of cases' do
+      it 'assigns a list of kases' do
+        kases = (1..2).map { create(:intake).kase }
+        kases.each do |kase|
+          expect(controller).to receive(:has_access?)
+            .with(admin, kase)
+            .and_return(true)
+        end
+
         get :index
 
         expect(response).to have_http_status(200)
@@ -33,7 +33,18 @@ RSpec.describe Kasey::KasesController, type: :controller do
       end
 
       it 'does not display closed cases' do
-        closed_kase =  create(:kase, aasm_state: :closed)
+        kases = (1..2).map { create(:intake).kase }
+        intake =  create(:intake)
+        closed_kase = intake.kase
+        closed_kase.review!
+        closed_kase.close!
+
+        kases.each do |kase|
+          expect(controller).to receive(:has_access?)
+            .with(admin, kase)
+            .and_return(true)
+        end
+
         get :index
 
         expect(response).to have_http_status(200)
@@ -45,29 +56,24 @@ RSpec.describe Kasey::KasesController, type: :controller do
         expect(response.body).not_to have_content(closed_kase.intake.email)
       end
 
-      pending 'displayes only the cases the user has acess to'
-
       it 'displays only the cases the user has access to' do
-        authz_kase1 = create(:kase)
-        authz_kase2 = create(:kase)
+        kases = (1..2).map { create(:intake).kase }
+        authzed_kase = create(:intake).kase
 
         kases.each do |kase|
           expect(controller).to receive(:has_access?)
             .with(admin, kase)
             .and_return(false)
         end
+
         expect(controller).to receive(:has_access?)
-          .with(admin, authz_kase1)
-          .and_return(true)
-        expect(controller).to receive(:has_access?)
-          .with(admin, authz_kase2)
+          .with(admin, authzed_kase)
           .and_return(true)
 
         get :index
 
         expect(response).to have_http_status(200)
-        expect(response.body).to have_content(authz_kase1.intake.email)
-        expect(response.body).to have_content(authz_kase2.intake.email)
+        expect(response.body).to have_content(authzed_kase.intake.email)
         kases.each do |kase|
           expect(response.body).not_to have_content(kase.intake.email)
         end
