@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2020_08_03_171809) do
+ActiveRecord::Schema.define(version: 2020_08_13_205816) do
 
   create_table "action_mailbox_inbound_emails", force: :cascade do |t|
     t.integer "status", default: 0, null: false
@@ -52,6 +52,15 @@ ActiveRecord::Schema.define(version: 2020_08_03_171809) do
     t.index ["key"], name: "index_active_storage_blobs_on_key", unique: true
   end
 
+  create_table "assignments", force: :cascade do |t|
+    t.integer "user_id", null: false
+    t.integer "intake_id", null: false
+    t.datetime "created_at", precision: 6, null: false
+    t.datetime "updated_at", precision: 6, null: false
+    t.index ["intake_id"], name: "index_assignments_on_intake_id"
+    t.index ["user_id"], name: "index_assignments_on_user_id"
+  end
+
   create_table "intakes", force: :cascade do |t|
     t.string "email"
     t.datetime "created_at", precision: 6, null: false
@@ -88,4 +97,6 @@ ActiveRecord::Schema.define(version: 2020_08_03_171809) do
   end
 
   add_foreign_key "active_storage_attachments", "active_storage_blobs", column: "blob_id"
+  add_foreign_key "assignments", "intakes"
+  add_foreign_key "assignments", "users"
 end

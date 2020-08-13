@@ -1,4 +1,5 @@
-require "kasey/engine"
+require 'kasey/engine'
+require 'kasey/helpers'
 
 ## Kasey module
 module Kasey
@@ -7,7 +8,7 @@ module Kasey
   class << self
     ## configure the Kasey module
     def configure
-      config = Kasey.configuration ||= Configuration.new
+      config = Kasey.configuration ||= Configuration.new(auth_required: false)
 
       yield config
     end
@@ -15,8 +16,10 @@ module Kasey
 
   ## struct for holding configuration
   Configuration = Struct.new(
-    :current_user_function,
-    :can_edit_intake_function
+    :auth_required,
+    :authenticate_function,
+    :authorize_function,
+    :authenticated_user_function,
   )
 end
 

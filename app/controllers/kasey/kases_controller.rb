@@ -2,11 +2,13 @@ require_dependency "kasey/application_controller"
 
 module Kasey
   class KasesController < ApplicationController
-    before_action :authenticate_user!
+    before_action :authenticate!
     before_action :set_kase, only: [:show, :edit, :update, :destroy]
 
     def index
-      @kases = Kase.where.not(aasm_state: 'closed')
+      @kases = Kase.where.not(aasm_state: 'closed').filter do |kase|
+        has_access?(authenticated_user, kase)
+      end
     end
 
     def show

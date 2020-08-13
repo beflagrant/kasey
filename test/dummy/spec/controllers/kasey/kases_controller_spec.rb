@@ -6,15 +6,26 @@ RSpec.describe Kasey::KasesController, type: :controller do
   render_views
 
   context 'when the user is authorized' do
+    let(:admin) { User.find(2) || create(:admin) }
+
     login_admin
+
+    before do
+    end
+
     context '#index' do
       let!(:kases) do
         (1..4).map { create(:kase) }
       end
 
+      before do
+        allow(controller).to receive(:has_access?).and_return(true)
+      end
+
       it 'displays a list of cases' do
         get :index
 
+        expect(response).to have_http_status(200)
         kases.each do |kase|
           expect(response.body).to have_content(kase.intake.email)
           expect(response.body).to have_content(kase.created_at)
@@ -25,6 +36,7 @@ RSpec.describe Kasey::KasesController, type: :controller do
         closed_kase =  create(:kase, aasm_state: :closed)
         get :index
 
+        expect(response).to have_http_status(200)
         kases.each do |kase|
           expect(response.body).to have_content(kase.intake.email)
           expect(response.body).to have_content(kase.created_at)
@@ -34,6 +46,34 @@ RSpec.describe Kasey::KasesController, type: :controller do
       end
 
       pending 'displayes only the cases the user has acess to'
+
+      it 'displays only the cases the user has access to' do
+        authz_kase1 = create(:kase)
+        authz_kase2 = create(:kase)
+
+        kases.each do |kase|
+          expect(controller).to receive(:has_access?)
+            .with(admin, kase)
+            .and_return(false)
+        end
+        expect(controller).to receive(:has_access?)
+          .with(admin, authz_kase1)
+          .and_return(true)
+        expect(controller).to receive(:has_access?)
+          .with(admin, authz_kase2)
+          .and_return(true)
+
+        get :index
+
+        expect(response).to have_http_status(200)
+        expect(response.body).to have_content(authz_kase1.intake.email)
+        expect(response.body).to have_content(authz_kase2.intake.email)
+        kases.each do |kase|
+          expect(response.body).not_to have_content(kase.intake.email)
+        end
+
+      end
+
     end
 
 
