@@ -1,4 +1,5 @@
 require 'kasey/engine'
+require 'kasey/kase_managed'
 
 ## Kasey module
 module Kasey
