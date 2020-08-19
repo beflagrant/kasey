@@ -13,5 +13,5 @@
 //= require rails-ujs
 //= require activestorage
 //= require_tree .
-//
-console.log("WHAT");
+require("trix");
+require("@rails/actiontext");

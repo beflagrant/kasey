@@ -22,6 +22,42 @@ workflow engine for inclusion in your new or existing Rails application.
 
 ## Installation
 
+This gem uses (and includes) ActiveStorage, ActionMailbox, and ActionText. You
+may or may not have set these up in your application. If not, you can find the
+instructions as follows:
+
+- [Active
+  Storage](https://edgeguides.rubyonrails.org/active_storage_overview.html)
+- [Action Text](https://edgeguides.rubyonrails.org/action_text_overview.html)
+- [Action Mailbox](https://guides.rubyonrails.org/action_mailbox_basics.html)
+
+Once these are all installed, you'll want to add the gem to your Gemfile. If
+you're just using the gem, add:
+
+`gem 'kasey' # this doesn't work yet`
+
+or
+
+`gem 'kasey', git: 'https://github.com/beflagrant/kasey'`
+
+If you're _working on_ Kasey, add `kasey` as a git submodule:
+
+```
+git submodule add git@github.com:beflagrant/kasey vendor/kasey`
+git submodule update --init
+```
+
+You'll likely also want to commit the .gitmodules file, unless the previous
+exercise made you happy.
+
+You'll also need to add kasey to with a path:
+
+`gem 'kasey', path: 'vendor/kasey'`
+
+### For Using Kasey
+
+### For Developing Kasey
+
 (this is all TBD)
 
 ### Add the Gem
