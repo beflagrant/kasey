@@ -3,7 +3,7 @@
 default: &default
   source_path: app/javascript
   additional_paths:
-    - "../../app/javascript"
+    - "engine/kasey/app/javascript"
   source_entry_path: packs
   public_root_path: ../../public
   public_output_path: packs
