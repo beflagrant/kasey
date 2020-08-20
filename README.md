@@ -2,10 +2,11 @@
 
 (please remove all this prior to any visibility)
 
-1. check out the code
-2. all the 'action' happens in `test/dummy`
-3. `pushd test/dummy && bundle exec rails db:create db:migrate && popd`
-4. `pushd test/dummy && bundle exec rspec && popd`
+## How Do Dev?
+
+1. checkout `beflagrant/kasey-test-harness` and follow its README.
+
+# START REAL DOCS
 
 # Kasey
 

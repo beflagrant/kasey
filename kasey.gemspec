@@ -33,13 +33,5 @@ Gem::Specification.new do |spec|
   spec.add_dependency 'webpacker', '~> 5.2'
 
   spec.add_development_dependency 'sqlite3', '~> 1.4.2'
-  spec.add_development_dependency 'rspec-rails', '~> 4.0.1'
-  spec.add_development_dependency 'rspec_junit_formatter', '~> 0.4.1'
   spec.add_development_dependency 'pry'
-  spec.add_development_dependency 'factory_bot_rails'
 end
-
-
-#gem "aws-sdk-s3", require: false
-# Windows does not include zoneinfo files, so bundle the tzinfo-data gem
-#gem 'tzinfo-data', platforms: [:mingw, :mswin, :x64_mingw, :jruby]
