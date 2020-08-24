@@ -28,6 +28,7 @@ module Kasey
     # Use callbacks to share common setup or constraints between actions.
     def set_kase
       @kase = Kase.find(params[:id])
+      raise ActiveRecord::RecordNotFound.new('Not Found') unless has_access?(authenticated_user, @kase)
     end
 
     def kase_params

@@ -29,7 +29,7 @@ module Kasey
       when Symbol
         send(val, *args)
       else
-        raise 'configuration value is not allowed'
+        raise Kasey::ConfigurationError.new("configuration value [#{val}] is not allowed")
       end
     end
   end

@@ -31,5 +31,8 @@ module Kasey
     :authorize_function,
     :authenticated_user_function,
   )
+
+  class ConfigurationError < ::StandardError
+  end
 end
 
