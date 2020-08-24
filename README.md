@@ -35,17 +35,17 @@ instructions as follows:
 Once these are all installed, you'll want to add the gem to your Gemfile. If
 you're just using the gem, add:
 
-`gem 'kasey' # this doesn't work yet`
+`$> gem 'kasey' # this doesn't work yet`
 
 or
 
-`gem 'kasey', git: 'https://github.com/beflagrant/kasey'`
+`$> gem 'kasey', git: 'https://github.com/beflagrant/kasey'`
 
 If you're _working on_ Kasey, add `kasey` as a git submodule:
 
-```
-git submodule add git@github.com:beflagrant/kasey vendor/kasey`
-git submodule update --init
+```bash
+$> git submodule add git@github.com:beflagrant/kasey vendor/kasey`
+$> git submodule update --init
 ```
 
 You'll likely also want to commit the .gitmodules file, unless the previous
