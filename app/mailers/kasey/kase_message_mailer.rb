@@ -9,8 +9,9 @@ class Kasey::KaseMessageMailer < ApplicationMailer
       }
     end
     mail(
+      subject: "A message from Kasey! (Kase ##{@kase.token})",
       to: @kase.intake.email,
-      from: "#{@kase.token}@sandboxfd8dce1636144836a50674167a7f71f2.mailgun.org",
+      from: "#{@kase.token}@#{Kasey.configuration.email_domain}",
     )
   end
 end

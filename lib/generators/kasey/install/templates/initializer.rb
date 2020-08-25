@@ -6,7 +6,9 @@
 # the name of a function to call, or a -> { lambda }. in particular,
 # `authorize_function` will take a lambda with two arguments, user and
 # kase. 'routing_pattern' requires a regex or string, and will be used
-# to match incoming email addresses headed for kasey
+# to match incoming email addresses headed for kasey. this should be the
+# same as the email domain, in 'email_domain', unless you have a strange
+# configuration.
 #
 # these configured params will be called from a controller inheriting from
 # ::ApplicationController, so any helpers or methods defined there can be
@@ -20,6 +22,7 @@
 #       c.authenticate_function = :authenticate_user! # from Devise
 #       c.authorize_function = ->(user, kase) { kase.assignments.pluck(:user_id).include(user.id) }
 #       c.authenticated_user_function = :current_user # from Devise
+#       c.email_domain = 'change-me.org'
 #       c.routing_pattern = /kasey/i
 #     end
 

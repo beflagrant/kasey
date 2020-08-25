@@ -35,6 +35,8 @@ module Kasey
         raise_unless_callable(f)
       end
 
+      raise_unless_email_domain_valid
+
       raise_unless_matchable(:routing_pattern)
     end
 
@@ -42,15 +44,23 @@ module Kasey
       raise_unless_acceptable([::Symbol, ::Proc], field)
     end
 
+    def raise_unless_email_domain_valid
+      email_domain = Kasey.configuration.email_domain
+      return if email_domain.to_s == email_domain
+
+      msg = 'Kasey.configuration[:email_domain] must be a valid string'
+      raise Kasey::ConfigurationError.new(msg)
+    end
+
     def raise_unless_matchable(field)
       raise_unless_acceptable([::Regexp, ::String], field)
     end
 
     def raise_unless_acceptable(accepted, field)
-      unless accepted.include?(Kasey.configuration[field].class)
-        msg = "Kasey.configuration field #{field} type must be in #{accepted.join(', ')}"
-        raise Kasey::ConfigurationError.new(msg)
-      end
+      return if accepted.include?(Kasey.configuration[field].class)
+
+      msg = "Kasey.configuration field #{field} type must be in #{accepted.join(', ')}"
+      raise Kasey::ConfigurationError.new(msg)
     end
   end
 
@@ -60,6 +70,7 @@ module Kasey
     :authenticate_function,
     :authorize_function,
     :authenticated_user_function,
+    :email_domain,
     :routing_pattern,
   )
 
