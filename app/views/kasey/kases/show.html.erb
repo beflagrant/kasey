@@ -35,4 +35,4 @@
   </div>
 </div>
 
-<%= render @kase.messages %>
+<%= render @kase.messages.where.not(id: nil) %>
