@@ -5,7 +5,8 @@
 # the rest of the configuration parameters can be a :symbol that is
 # the name of a function to call, or a -> { lambda }. in particular,
 # `authorize_function` will take a lambda with two arguments, user and
-# kase.
+# kase. 'routing_pattern' requires a regex or string, and will be used
+# to match incoming email addresses headed for kasey
 #
 # these configured params will be called from a controller inheriting from
 # ::ApplicationController, so any helpers or methods defined there can be
@@ -19,6 +20,7 @@
 #       c.authenticate_function = :authenticate_user! # from Devise
 #       c.authorize_function = ->(user, kase) { kase.assignments.pluck(:user_id).include(user.id) }
 #       c.authenticated_user_function = :current_user # from Devise
+#       c.routing_pattern = /kasey/i
 #     end
 
 Kasey.configure do |c|
@@ -26,4 +28,5 @@ Kasey.configure do |c|
   c.authenticate_function = :configure_authenticate_function_in_kasey_initializer
   c.authorize_function = ->(user, kase) { raise 'configure authorize function in kasey initializer' } 
   c.authenticated_user_function = :configure_authenticated_user_function_in_kasey_initializer
+  c.routing_pattern = /kasey/i
 end

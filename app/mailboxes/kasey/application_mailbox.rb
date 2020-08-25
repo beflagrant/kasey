@@ -1,3 +1,4 @@
 class Kasey::ApplicationMailbox < ActionMailbox::Base
-  routing (/kasey/i) => "Kasey::KaseInbox" #JAAAANKY
+  # should be configurable
+  routing (Kasey.configuration.routing_pattern) => "Kasey::KaseInbox"
 end

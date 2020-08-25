@@ -28,14 +28,30 @@ module Kasey
 
     def config_check
       config = Kasey.configuration
-      sym_or_proc = [::Symbol, ::Proc]
-      raise ConfigurationError if config.nil? ||
-        !!config.auth_required != config.auth_required ||
-        !sym_or_proc.include?(config.authenticate_function.class) ||
-        !sym_or_proc.include?(config.authorize_function.class) ||
-        !sym_or_proc.include?(config.authenticated_user_function.class)
+      raise ConfigurationError.new('Kasey.configuration cannot be nil') if config.nil?
+      raise ConfigurationError.new('Kasey.configuration[:auth_required] must be Boolean') if !!config.auth_required != config.auth_required
+
+      [:authenticate_function, :authorize_function, :authenticated_user_function].each do |f|
+        raise_unless_callable(f)
+      end
+
+      raise_unless_matchable(:routing_pattern)
     end
 
+    def raise_unless_callable(field)
+      raise_unless_acceptable([::Symbol, ::Proc], field)
+    end
+
+    def raise_unless_matchable(field)
+      raise_unless_acceptable([::Regexp, ::String], field)
+    end
+
+    def raise_unless_acceptable(accepted, field)
+      unless accepted.include?(Kasey.configuration[field].class)
+        msg = "Kasey.configuration field #{field} type must be in #{accepted.join(', ')}"
+        raise Kasey::ConfigurationError.new(msg)
+      end
+    end
   end
 
   ## struct for holding configuration
@@ -44,6 +60,7 @@ module Kasey
     :authenticate_function,
     :authorize_function,
     :authenticated_user_function,
+    :routing_pattern,
   )
 
   class ConfigurationError < ::StandardError

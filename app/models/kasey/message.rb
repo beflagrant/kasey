@@ -6,8 +6,8 @@ module Kasey
 
     def sender
       return 'internal note' if internal?
-      return self.kase.intake.name if in?
-      return 'admin user' if out?
+      return self.kase.intake.email if in?
+      return self.sent_by if out?
     end
 
     private

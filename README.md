@@ -87,7 +87,15 @@ TBD!
 
 ## Usage
 
-How to use my plugin. On
+### Intakes
+
+What as in intake?
+
+Note: an intake must have an email field.
+
+Todo: intakes might implement a method that displays in the 'show kase' view
+that isn't email.
+
 
 ## Development
 
