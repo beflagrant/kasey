@@ -19,6 +19,7 @@ module Kasey
 
       call_or_send(Kasey.configuration.authenticated_user_function)
     end
+    helper_method :authenticated_user
 
     private
 

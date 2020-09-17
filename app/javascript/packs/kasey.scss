@@ -1,0 +1,96 @@
+// kasey - kasey.scss
+
+@import "~bootstrap/scss/bootstrap.scss";
+@import "~trix/dist/trix";
+
+
+body {
+  font-family: 'Nunito Sans';
+  font-style: normal;
+  font-weight: normal;
+  line-height: 22px;
+  background: linear-gradient(180deg, #F1F2F6 0%, rgba(241, 242, 246, 0) 100%);
+  & > container {
+    flex-direction: column;
+    justify-content: space-around;
+  }
+}
+
+
+
+h1 {
+  font-family: 'Bitter';
+  font-style: normal;
+  font-weight: bold;
+  font-size: 2.5rem;
+  color: #191A1B;
+}
+
+h2 {
+  color: #681CB0;
+  font-size: 1.57rem;
+  font-weight: normal;
+}
+
+section.billboard {
+  background: #FFFFFF;
+
+  /* Shadow */
+  box-shadow: 4px 4px 0px rgba(205, 210, 217, 0.5);
+  padding: 60px 70px;
+}
+
+nav.nav {
+  margin-bottom: 60px;
+  a.nav-link {
+    border: 1px solid #404C5A;
+box-sizing: border-box;
+border-radius: 2px;
+margin: 4px 0px 4px 10px;
+padding: 4px 8px;
+    color: #404C5A;
+    &:visited {
+      color: #404C5A;
+    }
+    &:link {
+      color: #404C5A
+    }
+  }
+}
+
+footer {
+  margin-top: 130px;
+  padding: 40px 30px;
+  background: #404C5A;
+  color: #fff;
+
+  .container {
+    text-align: right;
+  }
+}
+
+  .required {
+    font-weight: bold;
+  }
+  label {
+    margin-top: 1.25rem;
+    width: 100%;
+    abbr {
+      display: none;
+    }
+  }
+
+  input, textarea {
+    border: 1px solid #CDD2D9;
+    box-sizing: border-box;
+    border-radius: 3px;
+    width: 100%;
+  }
+
+  .btn {
+    background: #681CB0;
+    border-radius: 3px;
+    margin-top: 30px;
+    width: revert;
+    color: #F7F7F9;
+  }

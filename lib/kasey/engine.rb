@@ -7,6 +7,12 @@ module Kasey
     engine_name 'kasey'
     isolate_namespace Kasey
 
+    config.app_middleware.use(
+      Rack::Static,
+      # note! this varies from the webpacker/engine documentation
+      urls: ["/kasey-packs"], root: Kasey::Engine.root.join("public")
+    )
+
     initializer :append_migrations do |app|
       unless app.root.to_s.match root.to_s
         config.paths['db/migrate'].expanded.each do |expanded_path|

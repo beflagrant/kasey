@@ -19,8 +19,8 @@ module Kasey
     ## provide webpacker access at the engine level
     def webpacker
       @webpacker ||= ::Webpacker::Instance.new(
-        root_path: ROOT_PATH,
-        config_path: ROOT_PATH.join('config/webpacker.yml')
+        root_path: Kasey::Engine.root,
+        config_path: Kasey::Engine.root.join('config/webpacker.yml')
       )
     end
 
