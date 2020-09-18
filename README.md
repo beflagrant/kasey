@@ -29,7 +29,7 @@ you're just using the gem, add:
 
 or
 
-`$> gem 'kasey', git: 'https://github.com/beflagrant/kasey'`
+`$> gem 'kasey', git: 'https://github.com/beflagrant/kasey', branch: 'main'`
 
 If you're _working on_ Kasey, add `kasey` as a git submodule:
 
@@ -50,7 +50,6 @@ Once the gem is in your Gemfile:
 ```bash
 $ bundle
 $ rails kasey:setup
-$ rails db:migrate
 ```
 
 ### Add Kasey to your Routes
