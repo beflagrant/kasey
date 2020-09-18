@@ -8,7 +8,7 @@ end
 
 
 namespace :kasey do
-    desc "Setup Kasey" do
+    desc "Setup Kasey"
     task :setup do
       sh "rails g kasey:install"
       Rake::Task['db:migrate'].invoke
