@@ -8,6 +8,12 @@ end
 
 
 namespace :kasey do
+    namespace :setup do
+      desc "Setup Kasey" do
+        sh "rails g kasey:install"
+        Rake::Task['kasey:webpacker:compile'].invoke
+      end
+    end
     namespace :webpacker do
         desc "Install deps with yarn"
         task :yarn_install do

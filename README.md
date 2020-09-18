@@ -49,9 +49,20 @@ Once the gem is in your Gemfile:
 
 ```bash
 $ bundle
-$ rails kasey:install
-$ rails kasey:webpacker:compile
+$ rails kasey:setup
 $ rails db:migrate
+```
+
+### Add Kasey to your Routes
+
+Let your application know where to mount Kasey's routes
+by adding the following to your `config/routes.rb` file:
+
+```ruby
+Rails.application.routes.draw do
+  # other routes before or after
+  mount Kasey::Engine, at: '/kasey'
+end
 ```
 
 ### Konfigure Kasey
