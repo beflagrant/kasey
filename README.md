@@ -45,6 +45,10 @@ You'll also need to add kasey to with a path:
 
 `gem 'kasey', path: 'vendor/kasey'`
 
+If you're using the `webpacker` gem, update to version 5.2:
+
+`gem 'webpacker', '~> 5.2'`
+
 Once the gem is in your Gemfile:
 
 ```bash
