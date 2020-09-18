@@ -20,7 +20,9 @@ Gem::Specification.new do |spec|
     '{app,config,db,lib}/**/*',
     'MIT-LICENSE',
     'Rakefile',
-    'README.md'
+    'README.md',
+    'postcss.config.js',
+    'package.json'
   ]
   spec.test_files = Dir["spec/**/*"]
 

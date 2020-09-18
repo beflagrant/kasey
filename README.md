@@ -50,7 +50,6 @@ Once the gem is in your Gemfile:
 ```bash
 $ bundle
 $ rails kasey:install
-$ rails kasey:install:migrations
 $ rails kasey:webpacker:compile
 $ rails db:migrate
 ```
