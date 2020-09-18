@@ -10,9 +10,9 @@ end
 namespace :kasey do
     desc "Setup Kasey"
     task :setup do
-      sh "rails g kasey:install"
       Rake::Task['db:migrate'].invoke
       Rake::Task['kasey:webpacker:compile'].invoke
+      Rails::Generators.invoke("kasey:install")
     end
     namespace :webpacker do
         desc "Install deps with yarn"
