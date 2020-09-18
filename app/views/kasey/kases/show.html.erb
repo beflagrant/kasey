@@ -1,12 +1,14 @@
 <div class="card mb-3">
   <div class="card-header">
       from: <%= @kase.intake.email %> on: <%= @kase.intake.created_at %>
+      (<%= link_to('original', main_app.url_for(@kase.intake)) %>)
   </div>
   <div class="card-body">
-    <p>original message:</p>
-
-    <%= @kase.intake.email %>
-
+    <% begin %>
+      <%= render @kase.intake %>
+    <% rescue %>
+      <%= render partial: 'intake', locals: { intake: @kase.intake } %>
+    <% end %>
     <hr/>
 
     <%= button_to 'close', kase_path(@kase), method: :delete, class: 'btn btn-primary card-link' %>

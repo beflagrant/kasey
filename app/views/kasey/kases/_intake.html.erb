@@ -1,0 +1,6 @@
+<div class="content">
+  <% intake.attributes.each do |field_name, field_value| %>
+    <% next if field_name == 'id' %>
+    <p><%= field_name.titleize %>: <%= field_value %></p>
+  <% end %>
+</div>
