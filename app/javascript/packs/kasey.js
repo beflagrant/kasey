@@ -1,8 +1,5 @@
 // kasey - kasey.js
 
-console.log("starting kasey.js");
-
-
 require("@rails/ujs").start();
 require("turbolinks").start();
 require("@rails/activestorage").start();
@@ -24,6 +21,4 @@ require("bootstrap");
 
 require("trix");
 require("@rails/actiontext");
-
-console.log("finishing kasey.js");
 
