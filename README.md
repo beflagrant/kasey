@@ -75,6 +75,7 @@ And then execute:
 $ bundle
 $ rails kasey:install
 $ rails kasey:install:migrations
+$ rails kasey:webpacker:compile
 $ rails db:migrate
 ```
 
@@ -95,7 +96,6 @@ Note: an intake must have an email field.
 
 Todo: intakes might implement a method that displays in the 'show kase' view
 that isn't email.
-
 
 ## Development
 
