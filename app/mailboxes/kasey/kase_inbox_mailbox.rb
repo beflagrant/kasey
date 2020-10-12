@@ -18,7 +18,7 @@ class Kasey::KaseInboxMailbox < Kasey::ApplicationMailbox
     intake_ids = Kasey::Kase.all
       .filter { |k| k.intake }
       .map(&:intake)
-      .filter { |i| i.email == main.from.first }
+      .filter { |i| i.email == mail.from.first }
       .map(&:id)
     @kase = Kasey::Kase.find_by(token: extract_token(mail), intake_id: intake_ids)
   end
