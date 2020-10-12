@@ -6,7 +6,7 @@ class Kasey::MessagesController < Kasey::ApplicationController
 
   def create
     @message = @kase.messages.new(message_params)
-    @message.sent_by = authenticated_user || 'Kasey'
+    @message.sent_by = authenticated_user.email || 'Kasey'
     respond_to do |format|
       if @message.save
         if @message.out?
