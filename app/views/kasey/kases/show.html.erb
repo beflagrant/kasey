@@ -37,4 +37,4 @@
   </div>
 </div>
 
-<%= render @kase.messages.where.not(id: nil) %>
+<%= render @kase.messages.with_rich_text_body_and_embeds.where.not(id: nil) %>
