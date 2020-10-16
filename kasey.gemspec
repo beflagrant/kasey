@@ -26,7 +26,7 @@ Gem::Specification.new do |spec|
   ]
   spec.test_files = Dir["spec/**/*"]
 
-  spec.add_dependency 'rails', '~> 6.0.3', '>= 6.0.3.1'
+  spec.add_dependency 'rails', '~> 6.0.3', '>= 6.0.3.3'
   spec.add_dependency 'rake'
   spec.add_dependency 'aasm'
   spec.add_dependency 'image_processing', '~> 1.2'
