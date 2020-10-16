@@ -8,7 +8,7 @@ trix-toolbar [data-trix-button-group="file-tools"] {
   display: none;
 }
 
-@import "dropzone.scss";
+@import "./dropzone.css";
 
 body {
   font-family: 'Nunito Sans';
