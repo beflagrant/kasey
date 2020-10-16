@@ -14,8 +14,8 @@
         <div class="content">
             <strong>Attached Images:</strong><br />
             <% image_files.each do |file| %>
-            <% puts main_app.url_for(file) %>
-            <%= image_tag file.variant(resize_to_limit: [200, nil]) %>
+            <% attached = ActiveStorage::Attachment.find(file.id) %>
+            <%= image_tag main_app.url_for(attached.variant(resize_to_limit: [200, nil])) %>
             <% end %>
         </div>
     </div>
@@ -27,7 +27,8 @@
             <ul>
                 <% other_files.each do |file| %>
                 <li>
-                    <%= link_to file.filename, main_app.url_for(file) %>
+                    <% attached = ActiveStorage::Attachment.find(file.id) %>
+                    <%= link_to attached.filename, main_app.url_for(attached) %>
                 </li>
                 <% end %>
             </ul>
