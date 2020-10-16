@@ -22,3 +22,11 @@ require("bootstrap");
 require("trix");
 require("@rails/actiontext");
 
+// prevents attachments in trix editor
+document.addEventListener("trix-file-accept", function(event) {
+    console.log("preventing file accept");
+    event.preventDefault();
+});
+
+require("./dropzone.js");
+

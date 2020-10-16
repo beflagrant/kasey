@@ -1,40 +1,44 @@
 <div class="card mb-3">
-  <div class="card-header">
-      from: <%= @kase.intake.email %> on: <%= @kase.intake.created_at %>
-      (<%= link_to('original', main_app.url_for(@kase.intake)) %>)
-  </div>
-  <div class="card-body">
-    <% begin %>
-      <%= render @kase.intake %>
-    <% rescue %>
-      <%= render partial: 'intake', locals: { intake: @kase.intake } %>
-    <% end %>
-    <hr/>
+    <div class="card-header">
+        from: <%= @kase.intake.email %> on: <%= @kase.intake.created_at %>
+        (<%= link_to('original', main_app.url_for(@kase.intake)) %>)
+    </div>
+    <div class="card-body">
+        <% begin %>
+        <%= render @kase.intake %>
+        <% rescue %>
+        <%= render partial: 'intake', locals: { intake: @kase.intake } %>
+        <% end %>
+        <hr />
 
-    <%= button_to 'close', kase_path(@kase), method: :delete, class: 'btn btn-primary card-link' %>
-  </div>
+        <%= button_to 'close', kase_path(@kase), method: :delete, class: 'btn btn-primary card-link' %>
+    </div>
 </div>
 
 
 <div class="card mb-3">
-  <div class="card-header">
-    Add a Message
-  </div>
-  <div class="card-body">
-    <%= form_with(model: @kase.messages.new, url: kase_messages_path(@kase)) do |form| %>
-      <div class="field">
-        <%= form.rich_text_area :body %>
-      </div>
-      <div class="field">
-        <button type="submit" class="btn btn-success" name="message[direction]", value="out">
-          Send To Client
-        </button>
-        <button type="submit" class="btn btn-success" name="message[direction]", value="internal">
-          Save Internal Note
-        </button>
-      </div>
-    <% end %>
-  </div>
+    <div class="card-header">
+        Add a Message
+    </div>
+    <div class="card-body">
+        <%= form_with(model: @kase.messages.new, url: kase_messages_path(@kase)) do |form| %>
+        <div class="field">
+            <%= form.rich_text_area :body %>
+        </div>
+        <div class="field">
+            <%= form.label :files %>
+            <%= form.file_field :files, multiple: true %>
+        </div>
+        <div class="field">
+            <button type="submit" class="btn btn-success" name="message[direction]" , value="out">
+                Send To Client
+            </button>
+            <button type="submit" class="btn btn-success" name="message[direction]" , value="internal">
+                Save Internal Note
+            </button>
+        </div>
+        <% end %>
+    </div>
 </div>
 
 <%= render @kase.messages.with_rich_text_body_and_embeds.where.not(id: nil) %>

@@ -1,10 +1,37 @@
 <div class="card message__<%= message.direction %> mb-3">
-  <div class="card-header">
-      from: <%= message.sender %> on: <%= message.created_at %>
-  </div>
-  <div class="card-body">
-    <div class="content">
-      <p><%= message.body %></p>
+    <div class="card-header">
+        from: <%= message.sender %> on: <%= message.created_at %>
     </div>
-  </div>
+    <div class="card-body">
+        <div class="content">
+            <p><%= message.body %></p>
+        </div>
+    </div>
+    <% image_files = message.files.filter {|f| f.image? } %>
+    <% other_files = message.files.filter {|f| !f.image? } %>
+    <% if image_files.any? %>
+    <div class="card-body">
+        <div class="content">
+            <strong>Attached Images:</strong><br />
+            <% image_files.each do |file| %>
+            <% puts main_app.url_for(file) %>
+            <%= image_tag file.variant(resize_to_limit: [200, nil]) %>
+            <% end %>
+        </div>
+    </div>
+    <% end %>
+    <% if other_files.any? %>
+    <div class="card-body">
+        <div class="content">
+            <strong>Other Attached Files:</strong><br />
+            <ul>
+                <% other_files.each do |file| %>
+                <li>
+                    <%= link_to file.filename, main_app.url_for(file) %>
+                </li>
+                <% end %>
+            </ul>
+        </div>
+    </div>
+    <% end %>
 </div>

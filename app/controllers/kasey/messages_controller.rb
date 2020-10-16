@@ -49,6 +49,6 @@ class Kasey::MessagesController < Kasey::ApplicationController
 
   # Only allow a list of trusted parameters through.
   def message_params
-    params.require(:message).permit(:body, :case_id, :direction)
+    params.require(:message).permit(:body, :kase_id, :direction, files: [])
   end
 end

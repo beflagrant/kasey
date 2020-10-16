@@ -3,6 +3,12 @@
 @import "~bootstrap/scss/bootstrap.scss";
 @import "~trix/dist/trix";
 
+// hide the trix file attach button
+trix-toolbar [data-trix-button-group="file-tools"] {
+  display: none;
+}
+
+@import "dropzone.scss";
 
 body {
   font-family: 'Nunito Sans';

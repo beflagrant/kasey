@@ -2,6 +2,7 @@ module Kasey
   class Message < ApplicationRecord
     enum direction: %i[internal in out]
     has_rich_text :body
+    has_many_attached :files
     belongs_to :kase
 
     def sender
