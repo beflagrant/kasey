@@ -13,7 +13,7 @@ gemspec
 
 # gem 'rake'
 gem 'devise'
-gem 'puma'
+gem 'puma', '~> 4.3', '>= 4.3.6'
 # gem 'aasm'
 
 # Use SCSS for stylesheets
@@ -63,4 +63,3 @@ end
 ## brought along from the prototype
 #
 #gem 'aws-sdk-s3'
-
