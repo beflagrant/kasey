@@ -4,7 +4,7 @@ class Kasey::Kase < ApplicationRecord
   include ::AASM
 
   aasm do
-    state :open, initial: true
+    state :open, initial: true, after_enter: :notify_us
     state :reviewed, :responded, :closed
 
     event :review do
@@ -27,6 +27,10 @@ class Kasey::Kase < ApplicationRecord
   has_many :messages, -> { order  'created_at desc' }
 
   before_create :generate_token
+
+  def notify_us
+    Kasey::KaseMessageMailer.kase_created_email.deliver_now
+  end
 
   private
 

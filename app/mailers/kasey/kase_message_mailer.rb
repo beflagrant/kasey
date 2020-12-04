@@ -14,4 +14,12 @@ class Kasey::KaseMessageMailer < ApplicationMailer
       from: "#{@kase.token}@#{Kasey.configuration.email_domain}",
     )
   end
+
+  def kase_created_email
+    @message = "A new kase has been created!"
+    mail(
+      subject: "New Kase",
+      to: Kasey.configuration.notify_email,
+    )
+  end
 end
