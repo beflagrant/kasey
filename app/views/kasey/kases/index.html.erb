@@ -23,7 +23,7 @@
         <td><%= kase.aasm.current_state %></td>
         <td><%= link_to 'Show', kase %></td>
         <td>
-          <% unless kase.open? %>
+          <% unless (kase.open? || kase.closed?) %>
             <%= link_to 'Close', kase, method: :delete, data: { confirm: 'Are you sure?' } %>
           <% end %>
         </td>

@@ -10,8 +10,9 @@
         <%= render partial: 'intake', locals: { intake: @kase.intake } %>
         <% end %>
         <hr />
-
-        <%= button_to 'close', kase_path(@kase), method: :delete, class: 'btn btn-primary card-link' %>
+        <% unless (@kase.open? || @kase.closed?) %>
+            <%= button_to 'close', kase_path(@kase), method: :delete, class: 'btn btn-primary card-link' %>
+        <% end %>
     </div>
 </div>
 

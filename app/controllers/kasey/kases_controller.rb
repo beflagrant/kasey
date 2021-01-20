@@ -23,6 +23,13 @@ module Kasey
       end
     end
 
+    def closed
+      @kases = Kase.where(aasm_state: 'closed').filter do |kase|
+        has_access?(authenticated_user, kase)
+      end
+      render :index
+    end
+
     private
 
     # Use callbacks to share common setup or constraints between actions.
