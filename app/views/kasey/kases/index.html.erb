@@ -22,7 +22,11 @@
         <td><%= kase.messages.count %></td>
         <td><%= kase.aasm.current_state %></td>
         <td><%= link_to 'Show', kase %></td>
-        <td><%= link_to 'Destroy', kase, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+        <td>
+          <% unless kase.open? %>
+            <%= link_to 'Close', kase, method: :delete, data: { confirm: 'Are you sure?' } %>
+          <% end %>
+        </td>
       </tr>
     <% end %>
   </tbody>
