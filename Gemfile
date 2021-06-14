@@ -13,7 +13,7 @@ gemspec
 
 # gem 'rake'
 gem 'devise'
-gem 'puma', '~> 4.3', '>= 4.3.6'
+gem 'puma', '~> 5.3'
 # gem 'aasm'
 
 # Use SCSS for stylesheets
