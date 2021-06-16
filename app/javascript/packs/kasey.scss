@@ -11,6 +11,10 @@ trix-toolbar [data-trix-button-group="file-tools"] {
 @import "./dropzone.css";
 
 body {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  height: calc(100vh - 72px);
   font-family: 'Nunito Sans';
   font-style: normal;
   font-weight: normal;
@@ -48,12 +52,13 @@ section.billboard {
 
 nav.nav {
   margin-bottom: 60px;
+  padding: 1rem;
   a.nav-link {
     border: 1px solid #404C5A;
-box-sizing: border-box;
-border-radius: 2px;
-margin: 4px 0px 4px 10px;
-padding: 4px 8px;
+    box-sizing: border-box;
+    border-radius: 2px;
+    margin: 4px 0px 4px 10px;
+    padding: 4px 8px;
     color: #404C5A;
     &:visited {
       color: #404C5A;
@@ -94,9 +99,30 @@ footer {
   }
 
   .btn {
-    background: #681CB0;
+    background: rgb(104, 28, 176);
     border-radius: 3px;
     margin-top: 30px;
     width: revert;
     color: #F7F7F9;
+
+    &.client {
+      background: rgb(104, 28, 176);
+    }
+    &.note {
+      background-color:  transparent;
+      border: 1px solid #404C5A;
+      color: #404C5A;
+    }
+  }
+
+  .message__out, .messsage__in {
+    .card-header {
+      background-color: rgba(104, 28, 176, .2);
+    }
+  }
+
+  .message__internal {
+    .card-header {
+      background-color: rgba(64, 76, 90, .2);
+    }
   }
