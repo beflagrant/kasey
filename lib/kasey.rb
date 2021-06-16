@@ -37,11 +37,21 @@ module Kasey
 
       raise_unless_email_domain_valid
 
+      raise_unless_notify_email_valid
+
       raise_unless_matchable(:routing_pattern)
     end
 
     def raise_unless_callable(field)
       raise_unless_acceptable([::Symbol, ::Proc], field)
+    end
+
+    def raise_unless_notify_email_valid
+      # test for a valid email format
+      return if !Kasey.configuration.notify_email.nil?
+
+      msg = 'Kasey.configuration[:notify_email] must be a valid string'
+      raise Kasey::ConfigurationError.new(msg)
     end
 
     def raise_unless_email_domain_valid
@@ -71,6 +81,7 @@ module Kasey
     :authorize_function,
     :authenticated_user_function,
     :email_domain,
+    :notify_email,
     :routing_pattern,
   )
 
