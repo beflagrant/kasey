@@ -23,6 +23,7 @@
 #       c.authorize_function = ->(user, kase) { kase.assignments.pluck(:user_id).include(user.id) }
 #       c.authenticated_user_function = :current_user # from Devise
 #       c.email_domain = 'change-me.org'
+#       c.notify_email = "change-me@example.com"
 #       c.routing_pattern = /kasey/i
 #     end
 
@@ -32,5 +33,6 @@ Kasey.configure do |c|
   c.authorize_function = ->(user, kase) { raise 'configure authorize function in kasey initializer' }
   c.authenticated_user_function = :configure_authenticated_user_function_in_kasey_initializer
   c.email_domain = 'change-me.org'
+  c.notify_email = "change-me@example.com"
   c.routing_pattern = /kasey/i
 end
