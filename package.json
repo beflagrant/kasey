@@ -11,6 +11,7 @@
     "dropzone": "^5.7.2",
     "is-svg": "^4.2.2",
     "jquery": "^3.5.1",
+    "normalize-url": "^4.5.1",
     "popper.js": "^1.16.1",
     "trix": "^1.2.0",
     "turbolinks": "^5.2.0"
