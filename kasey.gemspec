@@ -32,7 +32,7 @@ Gem::Specification.new do |spec|
   spec.add_dependency 'image_processing', '~> 1.2'
   # spec.add_dependency 'wicked', '~> 1.3.4'
   spec.add_dependency 'sass-rails', '>= 6'
-  spec.add_dependency 'webpacker', '~> 5.2'
+  spec.add_dependency 'webpacker', '~> 5.4'
   spec.add_dependency 'trix'
 
   spec.add_development_dependency 'sqlite3', '~> 1.4.2'
