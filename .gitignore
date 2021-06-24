@@ -15,4 +15,4 @@ test/dummy/config/initializers/kasey.rb
 test/dummy/db/migrate/*kasey.rb
 tmp
 kasey-packs
-public/packs-test
+public/kasey-packs-test
