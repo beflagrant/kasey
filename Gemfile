@@ -15,7 +15,7 @@ gemspec
 
 # gem 'rake'
 gem 'devise'
-gem 'puma', '~> 5.3'
+gem 'puma', '~> 5.5'
 # gem 'aasm'
 
 # Use SCSS for stylesheets
