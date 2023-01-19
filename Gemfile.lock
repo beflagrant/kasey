@@ -86,7 +86,7 @@ GEM
       xpath (~> 3.2)
     childprocess (3.0.0)
     coderay (1.1.3)
-    concurrent-ruby (1.1.9)
+    concurrent-ruby (1.1.10)
     crass (1.0.6)
     devise (4.7.3)
       bcrypt (~> 3.0)
@@ -100,9 +100,9 @@ GEM
       railties (>= 3.2)
     erubi (1.10.0)
     ffi (1.15.1)
-    globalid (0.4.2)
-      activesupport (>= 4.2.0)
-    i18n (1.8.10)
+    globalid (1.0.1)
+      activesupport (>= 5.0)
+    i18n (1.12.0)
       concurrent-ruby (~> 1.0)
     image_processing (1.12.1)
       mini_magick (>= 4.9.5, < 5)
@@ -124,7 +124,7 @@ GEM
     mini_magick (4.11.0)
     mini_mime (1.1.0)
     mini_portile2 (2.5.3)
-    minitest (5.14.4)
+    minitest (5.17.0)
     nio4r (2.5.7)
     nokogiri (1.11.7)
       mini_portile2 (~> 2.5.0)
@@ -208,7 +208,7 @@ GEM
     tilt (2.0.10)
     trix (0.10.1)
       rails
-    tzinfo (1.2.9)
+    tzinfo (1.2.10)
       thread_safe (~> 0.1)
     warden (1.2.9)
       rack (>= 2.0.9)
@@ -231,7 +231,7 @@ GEM
     websocket-extensions (0.1.5)
     xpath (3.2.0)
       nokogiri (~> 1.8)
-    zeitwerk (2.4.2)
+    zeitwerk (2.6.6)
 
 PLATFORMS
   ruby
