@@ -6,7 +6,7 @@ module Kasey
     before_action :set_kase, only: [:show, :edit, :update, :destroy]
 
     def index
-      @kases = Kase.where.not(aasm_state: 'closed').filter do |kase|
+      @kases = Kase.where.not(aasm_state: 'closed').order(:created_at).filter do |kase|
         has_access?(authenticated_user, kase)
       end
     end
@@ -24,7 +24,7 @@ module Kasey
     end
 
     def closed
-      @kases = Kase.where(aasm_state: 'closed').filter do |kase|
+      @kases = Kase.where(aasm_state: 'closed').order(:created_at).filter do |kase|
         has_access?(authenticated_user, kase)
       end
       render :index
